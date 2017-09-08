@@ -38,4 +38,4 @@ First connect the phone to the PC with the .apk via USB
 Make sure file management is enabled
 Open up the phone storage through the PC file explorer
 Copy the .apk file from the PC into the download folder of the phone
-From the phone’s file manager, navigate to the download file and tap the .apk file to begin installation.
+From the phoneâ€™s file manager, navigate to the download file and tap the .apk file to begin installation.
