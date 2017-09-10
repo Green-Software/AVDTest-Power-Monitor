@@ -1,0 +1,36 @@
+# Using AVDTest
+
+####### What it does
+#
+# AVDTest records the consumption and utilization of the phone as a whole
+#   as well as the individual utilizations and frequencies of the 8 cores
+#   while a target app runs in the forground.
+
+
+####### Running Test
+#
+# Before running any tests, first make sure the phone is not charging and
+#   to close any background apps, as while there contribution may be little, 
+#we want to have consistent conditions for each test.
+#
+# After opening the AVDTest app, you may be prompted to allow root access.
+#   choose "Remember choice for 10 minutes" then tap the Allow button. The app cannot
+#   gather the data it needs without access to the root files.
+#
+# Select the app to be profiled from the list given then push the "Begin Test"
+#   button. The selected app will then be opened to the foreground with a gray
+#   "Start" button. 
+#
+# You can perform any actions needed to set up the app before testing now. If
+#   the button is in the way, it can be moved by simply touching and dragging 
+#   it to a different position.
+#
+# Once you are ready to start profiling, push the start button and the AVDTest
+#   app will begin recording the different metrics on the phone, giving a realtime
+#   read out of the current and the total cpu utilization.
+#
+# When the test is completed, push the button that now says "Stop" to save the
+#   test files to internal storage
+#
+# The file name will be "EnergyProfiler_Result_XXXXYYYYZZZZZZZZ.csv" where 
+#   X, Y, and Z are the year, the date, and the time respectively.

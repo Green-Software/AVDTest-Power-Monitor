@@ -1,0 +1,114 @@
+## Bootloader-and-Root-Access
+#
+# This file explains how to unlock the bootloader for Huawei P8
+# as well as how to flash TWRP and SuperSU in order to get 
+# root permissions
+
+
+
+## Preconditions/Software required
+#
+# Check and make sure HiSuite is installed on the PC so the PC can communicate
+# with the phone. 
+# 
+# Google ADB, which should include Fastboot, is also necessary. 
+# 
+# It is also a good idea to create a backup or have a clean image to reset the 
+# phone if anything goes horribly wrong.
+
+
+
+## Unlocking the Bootloader
+#
+# First, get the official code from Huawei to unlock your phone by going to:
+#   
+#   https://emui.huawei.com/en/plugin/unlock/index
+#
+# and fill out the form with the info from the "About phone" section of Settings
+# (You may need to create an account and sign in first)
+#
+# Once you have the code, go to settings and enable developer options if they
+# are not available by tapping the build number under the "About phone" section
+# 6 times in quick succession. 
+#
+# In the developer options, enable USB debugging.
+#
+# After making usre all previous steps are done and the needed software is 
+# installed on the PC, turn off the phone and then plug it into the PC via USB.
+#
+# On the PC, navigate to the folder containing ADB and open the command line.
+#
+# once in the terminal, execute the command
+#   
+#   adb reboot bootloader
+#
+# This will turn the phone on in bootloader mode. There should be an android 
+# icon and the word "PHONE Locked" visible now.
+#
+# If that didn't work, try holding down the Volume down button and the power
+# button on the phone simultaneously until the bootloader screen shows.
+#
+# Next, to unlock the bootloader, execute the command
+#
+#   fastboot oem unlock <your-unlock-code>
+#
+# where <your-unlock-code> is the 16-digit code from the Huawei site from before.
+#
+# After a short while the "PHONE Locked" should become a red "PHONE Unlocked"
+
+
+
+## Flashing TWRP and setting up SuperSU
+# 
+# Now that the Bootloader is unlocked, we can flash on different boot environments.
+#
+# This way we can install third-party software that interacts directly with the 
+# underlying linux code of Android.
+#
+# The most common and secure way to do this is with a boot environment called TWRP.
+#
+# First, download the most recent TWRP image for the Huawei phone from their website.
+#
+#   https://dl.twrp.me/p8/
+# 
+# Once the download is finished, move the file into the same folder as ADB
+#
+# rename the file to simply twrp.img.
+#
+# Then download a flashable .zip version of SuperSU from their website
+#
+#   http://www.supersu.com/download
+#
+# And move that into the internal memory of the phone using HiSuite.
+#
+# Now, reboot into the bootloader again, same as before.
+#
+# Once you are at the screen with the android icon, open the command line from
+# the ADB folder. Then execute the command
+#
+#   fastboot flash recovery twrp.img
+#
+# and wait until it returns "Done". This temporarily sets the recovery boot mode
+# to the TWRP boot environment. If you fail to boot into TWRP, you will need to
+# repeat this process and flash TWRP again before attemping another reboot.
+#
+# Once TWRP is installed, unplug the phone from the PC.
+#
+# Then simultaneously hold down the Volume UP button and the Power button
+# until the TeamWin logo shows up.
+#
+# Once in the TWRP screen, click the install button and find where you put
+# the SuperSU .zip file. 
+#
+# finally, click on the file and then swipe the button on the bottom to 
+# begin installing.
+#
+# After the installation is finished, you can simply trun the phone off and on 
+# or pick "system" from the reboot options in TWRP.
+
+
+
+## Using SuperSU
+#
+# Now that SuperSU is installed, any app that requires root permissions will
+# query SuperSU and you can grant permission from the pop up that it gives.

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">AVDTest</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="bt">Begin Test</string>
+    <string name="btnAuto">Auto</string>
+
+    <string name="stopTest">Stop Test</string>
+
+    <string name="collect">Collect Frenquncy：</string>
+
+    <string name="seconds">Seconds</string>
+
+    <string name="window"> show floating window?</string>
+
+    <string name="ok">Save</string>
+
+    <string name="settings">setting</string>
+
+    <string name="memoryinfo">memoryInfo</string>
+
+    <string name="testmemory">test memory</string>
+
+    <string name="cpu">Begin Test</string>
+
+    <string name="system">system info</string>
+</resources>
